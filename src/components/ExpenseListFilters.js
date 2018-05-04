@@ -18,12 +18,7 @@ class ExpenseListFilters extends React.Component {
         this.setState({calendarFocused});
     };
 
-    // constructor(props) {
-    //     super(props);
-    // }
-
     render() {
-        console.log(this.props.filters);
         return (
             <div>
             <input type="text"
