@@ -157,30 +157,6 @@ store.subscribe(() => {
     const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 });
 
-const expense1 = store.dispatch(
-    addExpense({
-        description: 'Rent',
-        amount: 100,
-        createdAt: 2000
-    })
-);
-
-const expense2 = store.dispatch(
-    addExpense({
-        description: 'Coffee',
-        amount: 3,
-        createdAt: 200
-    })
-);
-
-// store.dispatch(removeExpense({id: expense2.expense.id}));
-// store.dispatch(editExpense(expense2.expense.id, { amount: 5 }));
-store.dispatch(sortByAmount());
-// store.dispatch(sortByDate());
-// store.dispatch(setStartDate(125));
-// store.dispatch(setEndDate(400));
-// store.dispatch(setTextFilter('rent'));
-
 
 const demoState = {
     expenses: [{

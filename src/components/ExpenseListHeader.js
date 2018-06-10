@@ -1,28 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import numeral from 'numeral';
 
 import getTotalExpenses from '../selectors/expenses-total';
-import getExpensesCount from '../selectors/expenses-count';
 import selectExpenses from '../selectors/expenses';
 
+const ExpenseListHeader = ({ expenseCount, expensesTotal }) => {
+    const expenseWord = expenseCount === 1 ? 'expense' : 'expenses';
+    const formattedExpensesTotal = numeral(expensesTotal / 100).format('€0.0,00');
 
-class ExpenseListHeader extends React.Component {
-
-    render() {
-        return (
-            <div>
-                <p>Number of expenses: {getExpensesCount(this.props.expenses)}</p>
-                <p>Total amount: {getTotalExpenses(this.props.expenses)}</p>
-            </div>
-        )
-    }
-
-}
+    return (
+        <div>
+            <h1>Viewing {expenseCount} {expenseWord} totalling {formattedExpensesTotal}</h1>
+        </div>
+    );
+};
 
 const mapStateToProps = (state) => {
+    const visibleExpenses = selectExpenses(state.expenses, state.filters);
+
     return {
-        expenses: selectExpenses(state.expenses, state.filters)
-    };
+        expenseCount: visibleExpenses.length,
+        expensesTotal: getTotalExpenses(visibleExpenses)
+    }
 };
 
 export default connect(mapStateToProps)(ExpenseListHeader);
