@@ -8,10 +8,10 @@
     "author": "Martine Mulder",
     "license": "MIT",
     "scripts": {
-        "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
-        "build:prod": "webpack -p --config webpack.prod.js",
-        "dev-server": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js",
-        "test": "cross-env NODE_ENV=development jest --config jest.config.json",
+        "build:dev": "webpack",
+        "build:prod": "webpack -p --env production",
+        "dev-server": "webpack-dev-server",
+        "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
         "start": "node server/server.js",
         "heroku-postbuild": "npm run build:prod"
     },
