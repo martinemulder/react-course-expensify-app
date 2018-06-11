@@ -5,10 +5,10 @@
     "author": "Martine Mulder",
     "license": "MIT",
     "scripts": {
-        "build:dev": "webpack",
-        "build:prod": "webpack -p --env production",
-        "dev-server": "webpack-dev-server",
-        "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
+        "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+        "build:prod": "webpack -p --config webpack.prod.js",
+        "dev-server": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js",
+        "test": "cross-env NODE_ENV=development jest --config jest.config.json",
         "start": "node server/server.js",
         "heroku-postbuild": "yarn run build:prod"
     },
@@ -31,9 +31,9 @@
         "react-addons-shallow-compare": "15.6.0",
         "react-dates": "12.7.0",
         "react-dom": "16.0.0",
-        "react-modal": "^3.3.2",
+        "react-modal": "^3.4.5",
         "react-redux": "^5.0.7",
-        "react-router-dom": "^4.2.2",
+        "react-router-dom": "^4.3.1",
         "redux": "^3.7.2",
         "redux-thunk": "^2.3.0",
         "sass-loader": "^6.0.7",
@@ -43,6 +43,7 @@
         "webpack": "3.1.0"
     },
     "devDependencies": {
+        "cross-env": "^5.1.1",
         "dotenv": "^6.0.0",
         "jest": "20.0.4",
         "react-test-renderer": "16.0.0",
