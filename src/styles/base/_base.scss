@@ -1,37 +1,26 @@
-// Colors
+* {
+  box-sizing: border-box;
+}
 
-// rem
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 1.6rem;
+  color: $dark-grey;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $m-size;
+  line-height: 1.6;
 }
 
-* {
-    outline: none;
-}
-
-
-h1 {
-    font-size: 2.6rem;
-}
-
-button, input {
-    //border: none;
-}
-
-button, a {
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
 
 button:disabled {
-    cursor: default;
+  cursor: default;
 }
 
-header .active {
-    font-weight: bold;
+.is-active {
+  font-weight: bold;
 }
-
